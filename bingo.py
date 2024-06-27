@@ -91,7 +91,7 @@ with tab1:
 
     # Display bingo phrases along the top with their counts in rows of 5
     st.write("### Bingo Phrases")
-    for i in range(0, len(phrases), 5):
+    for i in range(0, len(phrases), 7):
         cols = st.columns(5)
         for j, phrase in enumerate(phrases[i:i+5]):
             count = state['click_counts'][phrase]
