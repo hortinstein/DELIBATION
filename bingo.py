@@ -17,7 +17,7 @@ def load_state():
         return {
             'click_counts': {phrase: 0 for phrase in phrases},
             'player_boards': [],
-            'usernames': []
+            'usernames': [],
         }
 
 # Function to save state to a file
@@ -39,6 +39,11 @@ def clear_state():
     save_state(state)
     return state
 
+def clear_counts(state):
+    state['click_counts'] = {phrase: 0 for phrase in phrases}
+    save_state(state)
+    return state
+
 # Bingo phrases
 phrases = [
     "stormy - 💉", "hunter - 💉", "COVID - 🍺", "dark biden - 🍺", 
@@ -46,7 +51,7 @@ phrases = [
     "this guy - 🍻", "air quotes - 🍻", "sleepy joe - 🍻", 
     "fake news - 🍻", "greatest/tremendous - 🍻", "Wall - 🍻", 
     "MAGA - 🍻", "woke - 🍻", "election interference - 🍻", 
-    "battery/shark/boats - 🍻", "believe me - 🍻", "crooked joe - 🍻"
+    "battery/shark/boats - 🍻", "believe me - 🍻", "crooked joe - 🍻", "lock [pronoun] up - 🍻"
 ]
 
 # Load state from file
@@ -56,18 +61,21 @@ state = load_state()
 tab1, tab2 = st.tabs(["Bingo Game", "Admin"])
 
 with tab1:
+    column1,column2 = st.columns(2)
     # Get username from user
-    username = st.text_input("Enter your username:")
-
-    # Generate a new board for a new player
-    if st.button('Join Game') and username:
-        if username not in state['usernames']:
-            new_board = create_board()
-            state['player_boards'].append({'username': username, 'board': new_board})
-            state['usernames'].append(username)
-            save_state(state)
-        else:
-            st.warning("Username already taken. Please choose a different username.")
+    with column1:
+        st.image("https://raw.githubusercontent.com/hortinstein/DELIBATION/main/signal-2024-06-26-19-04-03-485.jpg", width=200)
+    with column2:
+        username = st.text_input("Enter your username:")
+        # Generate a new board for a new player
+        if st.button('Join Game') and username:
+            if username not in state['usernames']:
+                new_board = create_board()
+                state['player_boards'].append({'username': username, 'board': new_board})
+                state['usernames'].append(username)
+                save_state(state)
+            else:
+                st.warning("Username already taken. Please choose a different username.")
 
     # Display bingo phrases along the top with their counts in rows of 5
     st.write("### Bingo Phrases")
@@ -101,8 +109,13 @@ with tab1:
             save_state(state)
             st.success("State has been cleared.")
             st.experimental_rerun()
+        if st.button('Clear counts'):
+            state = clear_counts(state)
+            save_state(state)
+            st.success("counts have been cleared.")
+            st.experimental_rerun()
 
 # Auto-refresh every second
-time.sleep(10)
+time.sleep(5)
 st.experimental_rerun()
 

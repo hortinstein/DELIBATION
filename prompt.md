@@ -22,3 +22,4 @@ air quotes - 🍻
 election interference - 
 believe me - 🍻
 crooked joe - 🍻
+lock [pronoun] up - 🍻
