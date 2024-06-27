@@ -11,7 +11,7 @@ STATE_FILE_PATH = 'bingo_state.json'
 # Define the admin password (insecure, for demonstration purposes)
 ADMIN_PASSWORD = "quitlookingatmysource"
 
-
+st.set_page_config(page_title="🍸DESERTBLACKOUT🍶",page_icon="⏳",layout="wide")
 # Function to load state from a file
 def load_state():
     if os.path.exists(STATE_FILE_PATH):
