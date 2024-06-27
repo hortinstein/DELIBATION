@@ -61,7 +61,9 @@ phrases = [
     "this guy - 🍻", "air quotes - 🍻", "sleepy joe - 🍻", 
     "fake news - 🍻", "greatest/tremendous - 🍻", "Wall - 🍻", 
     "MAGA - 🍻", "woke - 🍻", "election interference - 🍻", 
-    "battery/shark/boats - 🍻", "believe me - 🍻", "crooked joe - 🍻", "lock [pronoun] up - 🍻"
+    "battery/shark/boats - 🍻", "believe me - 🍻", "crooked joe - 🍻", "lock [pronoun] up - 🍻",
+    "let me be clear - 🍻","witch hunt - 🍻","folks - 🍻","either candidate talks over the other candidate - 🍻",
+    "fauci - 💉", "hilary - 💉"
 ]
 
 # Load state from file
